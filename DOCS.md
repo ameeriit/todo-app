@@ -8,4 +8,6 @@
 6. open http://localhost:5173/
 7. project is here.........
 
+For live demo project is deployed at url: https://todo-app-ameeriit.vercel.app/
+
 Thank you.
