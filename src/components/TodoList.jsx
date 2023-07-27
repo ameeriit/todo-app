@@ -3,22 +3,17 @@ import { useSelector, useDispatch } from "react-redux";
 import Todo from "./Todo";
 import AddTodoForm from "./AddTodoForm";
 import FilterOptions from "./FilterOptions";
-import SearchBar from "./SearchBar";
 import { addTodo, deleteTodo, toggleComplete } from "../store/reducers";
+import PropTypes from "prop-types";
 
-const TodoList = () => {
+const TodoList = ({ searchQuery }) => {
   const [filter, setFilter] = useState("all");
-  const [searchQuery, setSearchQuery] = useState("");
 
   const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
 
   const handleFilterChange = (selectedFilter) => {
     setFilter(selectedFilter);
-  };
-
-  const handleSearch = (query) => {
-    setSearchQuery(query);
   };
 
   const filteredTodos = todos
@@ -51,10 +46,6 @@ const TodoList = () => {
 
   return (
     <div className="text-center">
-      <SearchBar onSearch={handleSearch} />
-      <h1 className="text-4xl text-white text-center font-bold mb-12">
-        Todo App
-      </h1>
       <div className="max-w-[400px] mx-auto">
         <AddTodoForm addTodo={addTodoHandler} />
         <FilterOptions
@@ -76,6 +67,10 @@ const TodoList = () => {
       </div>
     </div>
   );
+};
+
+TodoList.propTypes = {
+  searchQuery: PropTypes.func.isRequired,
 };
 
 export default TodoList;
