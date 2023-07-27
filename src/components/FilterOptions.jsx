@@ -2,42 +2,15 @@ import PropTypes from "prop-types";
 
 const FilterOptions = ({ selectedFilter, onFilterChange }) => {
   return (
-    // filter wrapper for todos
-    <div className="flex gap-2 flex-wrap mb-8 text-white">
-      {/* filter for all, completed and uncompleted todos */}
-      <button
-        onClick={() => onFilterChange("all")}
-        className={`px-4 py-1  font-semibold
-          ${
-            selectedFilter === "all" ? "active bg-orange-400  rounded-md" : ""
-          }`}
-      >
-        All
-      </button>
-      <button
-        onClick={() => onFilterChange("completed")}
-        className={`px-4 py-1 font-semibold
-          ${
-            selectedFilter === "completed"
-              ? "active bg-orange-400 rounded-md  "
-              : ""
-          }
-        }`}
-      >
-        Completed
-      </button>
-      <button
-        onClick={() => onFilterChange("incomplete")}
-        className={`px-4 py-1 font-semibold
-          ${
-            selectedFilter === "incomplete"
-              ? "active bg-orange-400 rounded-md"
-              : ""
-          }`}
-      >
-        Incomplete
-      </button>
-    </div>
+    <select
+      value={selectedFilter}
+      onChange={(e) => onFilterChange(e.target.value)}
+      className="px-2 py-1 block mb-5 bg-gray-800 rounded-md outline-none text-white text-left"
+    >
+      <option value="all">All</option>
+      <option value="completed">Completed</option>
+      <option value="incomplete">Incomplete</option>
+    </select>
   );
 };
 
