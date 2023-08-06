@@ -45,7 +45,7 @@ const TodoList = ({ searchQuery }) => {
   };
 
   return (
-    <div className="text-center">
+    <section className="text-center">
       <div className="max-w-[400px] mx-auto">
         <AddTodoForm addTodo={addTodoHandler} />
         <FilterOptions
@@ -65,7 +65,7 @@ const TodoList = ({ searchQuery }) => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
